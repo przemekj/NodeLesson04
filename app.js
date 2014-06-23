@@ -1,3 +1,4 @@
+// LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL
 require('newrelic');
 var express = require('express')
   , expressValidator = require('express-validator');
@@ -98,7 +99,8 @@ userSchema.methods.comparePassword = function(candidatePassword, cb) {
 var User = mongoose.model('User', userSchema);
 
 mongoose.connect(process.env.MONGOHQ_URL);
-
+// LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL LOCAL
+ //mongoose.connect('localhost');
 var app = express();
 
 // all environments
@@ -113,9 +115,9 @@ app.use(expressValidator());
 app.use(express.methodOverride());
 app.use(express.cookieParser());
 app.use(express.session({ 
-	secret: process.env.SECRET, 
+	secret: process.env.SECRET,  // LOCAL LOCAL LOCAL LOCAL
 	cookie : {
-    maxAge : 604800 // one week
+    maxAge : 604800000 // 7 * 24 * 60 * 60 * 1000;
       }
 }));
 app.use(flash());
@@ -325,7 +327,7 @@ app.post('/signup', function(req, res) {
 	  backgroundColor: '#ffffff',
 	  firstLineTextSize: 4,
 	  secondLineTextSize: 2,
-	  ipAddress: req.connection.remoteAddress,
+	  ipAddress: req.header('x-forwarded-for') || req.connection.remoteAddress,
 	  isActiveUser: true
     });
 
