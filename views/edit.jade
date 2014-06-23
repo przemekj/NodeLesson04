@@ -1,0 +1,157 @@
+extends layout
+
+
+
+block content
+  script(src='/javascripts/bootstrap-colorpicker.min.js')
+  script.
+  
+
+    function backToDefaults(){
+
+        $('#back_color_group').colorpicker('setValue', '#ffffff');        
+        $('#firstLineColor_group').colorpicker('setValue', '#616161');
+        $('#secondLineColor_group').colorpicker('setValue', '#9c9c9c');
+        document.querySelector("#delay_slider").value = 2500;
+        document.querySelector("#delay_slider_output").innerHTML = 2500;
+        document.querySelector("#first_line_size_output").innerHTML = 4;
+        document.querySelector("#first_line_size").value = 4;
+        document.querySelector("#second_line_size_output").innerHTML = 2;
+        document.querySelector("#second_line_size").value = 2;
+        document.querySelector("#is_random_checkbox").value = 'Yes';
+        document.querySelector("#is_random_checkbox").checked = 'checked';
+        document.querySelector("#is_title_modified_checkbox").value = 'Yes';
+        document.querySelector("#is_title_modified_checkbox").checked = 'checked';
+        /* alert(vocabulary.offsetHeight); */
+        /* vocabulary.style.height='300px'; */
+    }
+    $(document).ready(function() {
+            $('#my_popover').popover({
+                trigger: "hover",
+                placement: "right",
+                html: 'true'
+            });
+    
+    var unsaved = false;
+
+    $("#vocabulary:input").change(function(){ 
+      unsaved = true;
+    });
+
+    function unloadPage(){ 
+      if(unsaved){
+        return "You have unsaved vocabulary on this page. Do you want to leave this page and discard your changes or stay on this page?";
+        }
+    }
+    $('#save_button').click(function() {
+       unsaved = false;
+    });
+
+    window.onbeforeunload = unloadPage;
+    
+    });
+    
+    $(function(){
+        $('.myColor').colorpicker();
+       
+    });
+    
+  script.
+
+  form(method='POST')
+    legend Your vocabulary URL is: 
+      strong 
+        a(href='/#{user.username}', target='_blank') http://blinkerize.com/#{user.username} 
+    // small The URL of your vocabulary is:
+    // h4 
+    //   |  http://blinkerize.com/#{user.username} 
+    .form-group
+      label(for='vocabulary')
+        span(class='glyphicon glyphicon-pencil', style='color: grey')
+        |  Edit your vocabulary  
+      small 
+        a(href='#', id='my_popover', font-weight='normal', data-content='<BR />Each line will appear as a single flashcard. <BR /><BR />Use the "<strong> - </strong>" character (pay attention to keep spaces on both sides of the dash) to separate the original word/phrase and its definition.<BR /><BR /> Lines starting with "<strong>*</strong>" (star) will not be displayed.<BR /><BR />')  [?]
+      textarea.form-control(type='text', cols="10", rows="10", name='vocabulary', overflow="scroll", id='vocabulary', maxlength='30000') 
+        |#{user.vocabulary}
+
+
+
+    p
+    .panel-group#accordion
+      div(class='panel panel-default')
+        .panel-heading
+          h4(class='panel-title')
+            a(href='#collapseOne', data-toggle='collapse', data-parent='.accordion')
+              //span(class='glyphicon glyphicon-chevron-down') 
+              b.caret
+              |  More settings
+        div#collapseOne(class='panel-collapse collapse')
+          div(class='panel-body') 
+            .form-group
+
+              .row-fluid
+                .span12                
+                  label(for='delay') Delay between displaying entries (ms)  
+                  output(name='delayOutput', for='delay_slider', id='delay_slider_output') #{user.delay}
+              input.form-control(type='range', name='delay_slider', id='delay_slider', min='100', max='7000', value='#{user.delay}', onchange='document.querySelector("#delay_slider_output").innerHTML = delay_slider.value', step='100')
+              
+             
+
+            div
+              .row
+                .col-md-4
+                  .well
+                    label(for='first_line_color') First line color
+                    div(class='input-group myColor', id='firstLineColor_group')
+                      input(class='form-control', type='text', value='#{user.firstLineColor}', name='first_line_color')
+  
+                      span(class='input-group-addon')
+                        i 
+                    p
+                    label(for='first_line_size') First line text size
+                    output(name='first_line_size_output', for='first_line_size', id='first_line_size_output') #{user.firstLineTextSize}
+                    input.form-control(type='range', name='first_line_size', min='1', max='7', step='0.5', value='#{user.firstLineTextSize}', onchange='document.querySelector("#first_line_size_output").innerHTML=first_line_size.value', id='first_line_size')
+                .col-md-4
+                  .well
+                    label(for='second_line_color') Second line color
+                    div(class='input-group myColor', id='secondLineColor_group')
+                      input(class='form-control', type='text', value='#{user.secondLineColor}', name='second_line_color', id='second_line_color')
+                      span(class='input-group-addon')
+                        i 
+                    p
+                    label(for='second_line_size') Second line text size
+                    output(name='second_line_size_output', for='second_line_size', id='second_line_size_output') #{user.secondLineTextSize}
+                    input.form-control(type='range', name='second_line_size', min='1', max='7', step='0.5', value='#{user.secondLineTextSize}', onchange='document.querySelector("#second_line_size_output").innerHTML=second_line_size.value', id='second_line_size')              
+              
+                .col-md-4
+                  .well
+                    label(for='back_color') Background color
+                    div(class='input-group myColor', id='back_color_group')
+                      input(class='form-control', type='text', value='#{user.backgroundColor}', name='back_color')
+                      span(class='input-group-addon')
+                        i(id = 'back_color_i', style='background-color: blue') 
+
+            label.checkbox Display entries in random order
+
+              if user.isRandom == true
+                input(type='checkbox', name='is_random_checkbox', id='is_random_checkbox', value='Yes', checked='checked')
+
+              else
+                // do something 
+                input(type='checkbox', name='is_random_checkbox', id='is_random_checkbox', value='No')
+            a.btn.btn-default.pull-right(role='button', id='defaults-btn', onclick="backToDefaults()") Back to defaults
+            label.checkbox Place current line in page title
+              
+              if user.isTitleModified == true
+                input(type='checkbox', name='is_title_modified_checkbox', id='is_title_modified_checkbox', value='Yes', checked='checked')
+
+              else
+                // do something 
+                input(type='checkbox', name='is_title_modified_checkbox', id='is_title_modified_checkbox', value='No')
+
+
+    button.btn.btn-primary(type='submit', id='save_button') Save vocabulary & settings
+    p
+    p
+    p
+    p

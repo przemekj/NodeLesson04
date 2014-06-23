@@ -1,0 +1,129 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="description", content="A web app that transforms vocabulary you're learning (or any other textual information) into fullscreen flashcards to display in between your daily tasks")
+    meta(property="og:title", content="Blinkerize. Memorize in the blink of an eye")
+    meta(property="og:type", content="website")
+    meta(property="og:url", content="http://blinkerize.com")
+    meta(property="og:image", content="/images/demo-pic-1.jpg")
+    meta(property="og:description", content="Blinkerize is a web app that transforms vocabulary you're learning (or any other textual information) into fullscreen flashcards that can be displayed in between your daily tasks")
+    meta(name="keywords", content="blinkize, memorize, vocabulary, learn foreign language, memorize vocabulary, flashcards, learning language, productivity, productive learning, remember vocabulary, web-based flashcards")
+    
+    title Blinkerize. Memorize in the blink of an eye.
+    // link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css')
+    link(rel='shortcut icon', type='image/x-icon', href='/favicon.ico')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+    script(src='//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js')
+    script.      
+      window.setTimeout(function() {
+      $(".alert").fadeTo(1000, 0).slideUp(1000, function(){
+        $(this).remove(); 
+      });
+      }, 2000);
+  body
+  
+    div#fb-root
+    script.
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+  
+    .navbar.navbar-inverse.navbar-static-top(role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/') Blinkerize
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li.active
+              // a(href='/') Home
+            if user
+              li
+                a(href='/faq') FAQ
+              li
+                a(href='/edit') Edit
+              li
+                a(href='/#{user.username}', target='_blank') Preview
+
+              //li
+              //  a(href='/logout') Logout
+            else
+              li
+                a(href='/faq') FAQ
+              //li
+                //a(href='/login') Login
+              li
+                a(href='/signup') Signup
+
+
+          if user
+            ul.nav.navbar-nav.navbar-right
+              li.active.dropdown
+                 
+                a(href='/#{user.username}', class='dropdown-toggle', data-toggle='dropdown') 
+                  span(class='glyphicon glyphicon-user', style='color: #c5c5c5')
+                  |  Logged in as #{user.email}
+                  
+                  b.caret
+                ul.dropdown-menu
+                  li
+                    a(href='/#{user.username}', target='_blank') 
+                      span(class='glyphicon glyphicon-eye-open', style='color: grey') 
+                      | &nbsp Preview
+                  li
+                    a(href='/edit') 
+                      span(class='glyphicon glyphicon-pencil', style='color: grey') 
+                      | &nbsp Edit
+                  li.divider
+                  li
+                    a(href='/logout')
+                      span(class='glyphicon glyphicon-log-out', style='color: grey') 
+                      | &nbsp Sign out
+          if !user
+            if start_page
+              form(method='POST')
+               .navbar-form.navbar-right(role='form')
+                  //li.active
+                  .form-group
+                    input.form-control(type='email', name='email', required='true', placeholder='email')
+                  .form-group
+                    input.form-control(type='password', name='password', required='true', placeholder='password')
+                  button.btn.btn-primary(type='submit', name='btnLogin') Login
+            else
+              ul.nav.navbar-nav.navbar-right              
+                li
+                  a(href='/login') Login              
+    .container
+      if messages.error
+        .alert.alert-danger.alert-dismissable
+          button.btn.close(type='button', class='close', data-dismiss='alert', aria-hidden='true')
+          div= messages.error
+      if messages.info
+        .alert.alert-info
+          div= messages.info
+      if messages.success
+        .alert.alert-success
+          div= messages.success
+      
+      block content
+      hr.featurette-divider-footer
+      div#footer
+  
+        #footer-left
+          a#footer_link(href='/terms') Terms 
+          a#footer_link(href='/faq') About
+          a#footer_link(href='http://fb.com') Facebook
+        div(id='footer-mid', class='fb-like', data-href='http://facebook.com/blinkerize', data-layout='button_count', data-action='like', data-show-faces='false', data-share='false')
+           
+        #footer-right  &copy; 2014 Blinkerize 
+

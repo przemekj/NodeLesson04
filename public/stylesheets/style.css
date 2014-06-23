@@ -1,0 +1,196 @@
+/* @import url("http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css");  */
+
+@import url("bootstrap-colorpicker.min.css"); 
+/* @import url("http://bootswatch.com/readable/bootstrap.min.css"); */
+
+@import url("http://bootswatch.com/readable/bootstrap.min.css");
+@import url("http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
+
+
+body{
+font-family:Georgia,"Times New Roman",Times,serif;font-size:16px;line-height:1.42857143;color:#333333;background-color:#FFFFFF
+}
+
+input,button,select,textarea{font-family:inherit;font-size:inherit;line-height:inherit}
+
+    a, a:active, a:focus{
+
+        outline: none; 
+
+    }
+
+#upper_textline {
+	font-family:Georgia,"Times New Roman",Times,serif;
+	/* font-family: Calibri, Verdana, Geneva, Arial, Helvetica, sans-serif; */
+	font-size: 6.5vw;
+	
+	color: gray;
+	padding-top: 200px;
+	padding-bottom: 10px;
+}
+
+#lower_textline {
+	font-family:Georgia,"Times New Roman",Times,serif;
+
+	font-size: 3vw;
+	color: #999999;
+	padding-top: 0px;
+	padding-bottom: 20px;
+}
+
+
+#third_textline {
+	font-family:Georgia,"Times New Roman",Times,serif;
+
+	font-size: 2.4vw;
+	font-style:italic;
+	color: #999999;
+	padding-top: 0px;
+	padding-bottom: 3px;
+}
+
+textarea{ 
+  width: 100%; 
+  max-width:100%;
+  min-width:100%;
+  
+  height:100px; 
+  min-height:100px;
+}
+
+
+output {
+    display: inline;
+    padding-top: 7px;
+    padding-left: 5px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #444;
+}
+
+.header-image {
+	/* background: url(../images/linedpaper.png) repeat; */ /* Use a tiling background image or a full width image - if you're using full width you will need to change no-repeat center center cover */
+	background-position: top;
+	background-color: #FFFFFF;
+	height: auto;
+	display: block;
+	width: 100%;
+	text-align: center; 
+}
+
+.headline {
+	padding: 5px 0;
+	
+}
+
+.headline > .container > h1 {
+	font-size: 79px;
+	/* background: #ffffff; */
+	line-height:1;
+	margin-top:30px;
+
+	
+}
+.headline > .container > h2 {
+	font-size: 25px;
+	color: gray;
+	padding: 0px 0px 30px 0px;
+	/* background: #ffffff; */
+
+   
+   margin-top:15px;
+}
+
+.featurette-divider {
+margin: 30px 0;
+}
+
+.featurette-divider-footer {
+margin: 90px 0px -20px 0px;
+}
+
+.featurette-divider-short{
+margin: 10px 0px 30px 0px;
+}
+
+.featurette {
+overflow: hidden;
+}
+
+.featurette-image.pull-left {
+margin-right: 60px;
+}
+.featurette-image.pull-right {
+margin-left: 60px;
+}
+
+.featurette-heading {
+font-size: 30px;
+margin-bottom: 25px;
+}
+
+.lead{margin-top:10px;font-size:16px;font-weight:200;line-height:1.4}
+
+h4.lead {
+  	font-size: 22px;
+	font-weight: normal;
+}
+.text-muted-gray{
+	color: gray;
+}
+ul.lead {
+   font-size:20px;font-weight:normal;
+   margin: 40px 0px 40px 18%;
+}
+
+#footer {
+        height: 60px;
+        padding-top: 20px;
+        margin-top: 20px;
+
+        
+        width: 100%;
+
+
+        font-size: 12px;
+        color: gray;
+
+ }
+#footer_link
+{
+color: gray;
+display: inline;
+font-size: 12px;
+margin-right: 15px;
+}
+#footer-left {
+width: 30%;
+text-align: left;
+float: left;
+
+}
+#footer-right {
+width: 30%;
+text-align: right;
+float: right;
+
+}
+#footer-mid {
+width: 39%;
+text-align: center;
+}
+.faq {
+  font-size: 12px;
+}
+
+.panel-default>.panel-heading{color:#333;background-color:#f5f5f5;border-color:#ddd}
+
+@media (min-width:768px){.lead{font-size:16px}}
+
+
+
+.form-group.warning input.form-control {
+border-color: #fa6d81;
+box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(250, 109, 129, 0.6);
+outline: 0 none;
+}

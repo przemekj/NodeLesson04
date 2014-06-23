@@ -1,0 +1,27 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+    "repository": {
+    "type": "git",
+    "url": "https://github.com/przemekj/NodeBeginnerLesson01.git"
+  },
+  "dependencies": {
+    "express": "3.5.0",
+    "jade": "*",
+    "express-validator": "*",
+    "bcrypt-nodejs": "0.0.3",
+    "async": "~0.6.2",
+    "passport-local": "~1.0.0",
+    "passport": "~0.2.0",
+    "nodemailer": "~0.6.1",
+    "mongoose": "~3.8.8",
+    "express-flash": "0.0.2",
+    "validator": "*",
+    "mongoose-validator": "*",
+    "newrelic": "*"
+  }
+}

@@ -1,0 +1,33 @@
+extends layout
+
+
+
+
+
+block content
+  script(src='/javascripts/jqBootstrapValidation.js')
+  script.
+    $(function () { $("input,select,textarea").not("[type=submit]").jqBootstrapValidation(); } );
+
+
+  form(method='POST' oninput="confirm.setCustomValidity(confirm.value != password.value ? 'Passwords do not match.' : '')")
+    legend Signup
+    //.form-group
+      // label(for='username') Username
+      // input.form-control(type='text', name='username', required='true', autofocus)
+    .form-group      
+      label(for='email') Email 
+
+ 
+      input.form-control(type='email', id='email', name='email', required='true', placeholder='Your email')
+
+        
+    .form-group
+      label(for='password') Password
+      small
+        p.help-block(style='display: inline;') 
+      input.form-control(type='password', name='password', id='password', required='true', placeholder='Password', minlength=3, maxlength=20, data-validation-minlength-message=" (5 to 20 characters long)")
+    .form-group
+      label(for='confirm') Confirm Password
+      input.form-control(type='password', name='confirm', required='true', placeholder='Re-type password', minlength=3, maxlength=20, data-validation-matches-match="password")
+    button.btn.btn-primary(type='submit') Signup

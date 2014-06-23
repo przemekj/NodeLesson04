@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  form(method='POST')
+    legend Login
+    .form-group
+      label(for='email') Email
+      input.form-control(type='email', name='email', autofocus, required='true', placeholder='Your email')
+    .form-group
+      label(for='password') Password
+      input.form-control(type='password', name='password', required='true', placeholder='Your password')
+    button.btn.btn-primary(type='submit') Login
+    a.btn.btn-link(href='/forgot') Forgot Password?

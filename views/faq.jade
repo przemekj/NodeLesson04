@@ -1,0 +1,314 @@
+extends layout
+
+block content
+  h1 Frequently Asked Questions
+  div(class='panel panel-default')
+    .panel-heading
+      h5 What is Blinkerize ?
+    .panel-body
+       p 
+         strong Blinkerize 
+         | is a web app that transform your input: lines of vocabulary or any other textual information into fullscreen flashcards that are displayed randomly (or in order) in your browser window. 
+       p After sign up each user gets his own URL (like 
+         a(href='http://blinkerize.com/xyz123')  blinkerize.com/xyz123
+         | ) where his vocabulary is displayed line by line; it can be customized in terms of font colors, size and delay between displaying another line.
+       p The idea is simple: to surround yourself with your study material and get exposed to your Blinkerize vocabulary page as often as possible (for a second or two each time) while not interfering with your main daily activities. These single seconds build up into solid minutes of authentic learning each day. 
+  div(class='panel panel-default')
+    .panel-heading
+      h5 How to prepare my vocabulary ?
+    .panel-body
+       p Go to 
+         i
+           strong Edit 
+         | section and input your text information into 
+         i  
+           strong Edit my vocabulary  
+         | window. Each separate line you enter will be transformed into a single flashcard. Place the " - " character (dash preceded and followed by a single space) to divide your entry into top and bottom line (e.g. word and its definition).
+       p If your line starts with "*" (star) character it will not be displayed.
+       p Click 
+         i  
+           strong Save vocabulary & settings 
+         | button to save your changes.
+       p To configure the way your entries are displayed click on 
+         i  
+           strong More settings
+
+
+  div(class='panel panel-default', id='faq_open_in_blank_tab')
+    .panel-heading
+      h5 How to have my Blinkerize URL show up everytime I open a new browser tab ?
+    .panel-body
+       p  Having your Blinkerize page displayed everytime you open a new blank browser tab - just for a fraction of a second before you move on to another webpage - is a nice, non pushy way to surround yourself with your study material while you're working online.
+        .panel-group#accordion
+          div(class='panel panel-default')
+            .panel-heading
+              h6
+                a(href='#collapseFirefox', data-toggle='collapse', data-parent='.accordion')
+                  b.caret
+                  |  Mozilla Firefox
+
+            div#collapseFirefox(class='panel-collapse collapse')
+              div(class='panel-body') 
+                ol
+                  li Open new browser window (or tab) and in the address bar type: 
+                    code 
+                      | about:config
+                    |  and press Enter
+                  li The warning page may appear - click 
+                    i 
+                      strong  I'll be careful, I promise! 
+                    | to continue
+                  li In the Search field type: 
+                    code 
+                      |  browser.newtab.url
+                    |  and double click the result.
+                  li A new window will pop up, paste your Blinkerize URL (
+                    if user
+                      code 
+                        strong http://blinkerize.com/#{user.username}
+                        
+                    else
+                      | e.g. blinkerize.com/xyz123
+                    | ) into the box, then press OK.
+
+          div(class='panel panel-default')
+            .panel-heading
+              h6
+                a(href='#collapseIE', data-toggle='collapse', data-parent='.accordion')
+                  b.caret
+                  |  Internet Explorer
+
+            div#collapseIE(class='panel-collapse collapse')
+              div(class='panel-body') 
+                p First you need to set your Blinkerize URL as your browser's home page.
+                ol
+                  li Go to 
+                    i 
+                      strong Tools > Internet Options
+                    |  and and in the first tab (
+                    i  
+                      strong General
+                    | ) paste your Blinkerize URL (
+                    if user
+                      code 
+                        strong http://blinkerize.com/#{user.username}
+                        
+                    else
+                      | e.g. blinkerize.com/xyz123
+                    | ) into the 
+                    i  
+                      strong Home Page  
+                    | field
+                  li Now click 
+                    i 
+                      strong Settings 
+                    | button in the 
+                    i
+                      strong Tabs 
+                    | section
+                  li Locate a drop-down menu labeled 
+                    i
+                      strong When a new tab is opened, open 
+                    | and select: 
+                    i 
+                      strong Your first home page
+          div(class='panel panel-default')
+            .panel-heading
+              h6
+                a(href='#collapseChrome', data-toggle='collapse', data-parent='.accordion')
+                  b.caret
+                  |  Chrome
+
+            div#collapseChrome(class='panel-collapse collapse')
+              div(class='panel-body') 
+                ol
+                  li Install a third-party add-on that will allow you to open a custom webpage with each newly opened tab, e.g.:
+                    p 
+                      a(href='https://chrome.google.com/webstore/detail/cnkhddihkmmiiclaipbaaelfojkmlkja', target = '_blank') https://chrome.google.com/webstore/detail/cnkhddihkmmiiclaipbaaelfojkmlkja
+                  li Go to 
+                    i
+                      strong Settings > Extensions 
+                    | and click
+                    i
+                      strong Options
+                    | next to the add-on you've just installed
+                  li 
+                    | Paste your Blinkerize URL (
+                    if user
+                      code 
+                        strong http://blinkerize.com/#{user.username}
+                        
+                    else
+                      | e.g. blinkerize.com/xyz123
+                    | ) into the input field
+
+  div(class='panel panel-default')
+    .panel-heading
+      h5 How to set my Blinkerize URL as your browser's home page ?
+    .panel-body
+       p  Have a look at your vocabulary before you start surfing the web by setting your Blikerize URL as your home page.
+        .panel-group#accordion
+          div(class='panel panel-default')
+            .panel-heading
+              h6
+                a(href='#collapseFirefox2', data-toggle='collapse', data-parent='.accordion')
+                  b.caret
+                  |  Mozilla Firefox
+
+            div#collapseFirefox2(class='panel-collapse collapse')
+              div(class='panel-body') 
+                ol
+                  li From the menu choose 
+                    i 
+                      strong Options 
+                    |  and in the 
+                    i
+                      strong General 
+                    | tab paste your Blinkerize URL (
+                    if user
+                      code 
+                        strong http://blinkerize.com/#{user.username}
+                        
+                    else
+                      | e.g. blinkerize.com/xyz123
+                    | ) into the 
+                    i
+                      strong Home Page 
+                    | field.
+
+          div(class='panel panel-default')
+            .panel-heading
+              h6
+                a(href='#collapseIE2', data-toggle='collapse', data-parent='.accordion')
+                  b.caret
+                  |  Internet Explorer
+
+            div#collapseIE2(class='panel-collapse collapse')
+              div(class='panel-body') 
+                ol
+                  li Go to 
+                    i 
+                      strong Tools > Internet Options
+                    |  and and in the first tab (
+                    i  
+                      strong General
+                    | ) paste your Blinkerize URL (
+                    if user
+                      code 
+                        strong http://blinkerize.com/#{user.username}
+                        
+                    else
+                      | e.g. blinkerize.com/xyz123
+                    | ) into the 
+                    i  
+                      strong Home Page  
+                    | field
+
+          div(class='panel panel-default')
+            .panel-heading
+              h6
+                a(href='#collapseChrome2', data-toggle='collapse', data-parent='.accordion')
+                  b.caret
+                  |  Chrome
+
+            div#collapseChrome2(class='panel-collapse collapse')
+              div(class='panel-body') 
+                ol
+                  li Go to 
+                    i
+                      strong Settings 
+                    | and select the 
+                    i
+                      strong Open a specific page or set of pages. 
+                    | option
+                  li 
+                    | Click 
+                    i
+                      strong Set pages 
+                    | and paste your Blinkerize URL (
+                    if user
+                      code 
+                        strong http://blinkerize.com/#{user.username}
+                        
+                    else
+                      | e.g. blinkerize.com/xyz123
+                    | ) into the input field (you might need to delete your current home page by clicking on X).
+          div(class='panel panel-default')
+            .panel-heading
+              h6
+                a(href='#collapseOpera', data-toggle='collapse', data-parent='.accordion')
+                  b.caret
+                  |  Opera
+
+            div#collapseOpera(class='panel-collapse collapse')
+              div(class='panel-body') 
+                ol
+                  li Go to 
+                    i
+                      strong Preferences 
+                    | and in the  
+                    i
+                      strong Genral 
+                    | tab paste your Blinkerize URL (
+                    if user
+                      code 
+                        strong http://blinkerize.com/#{user.username}
+                        
+                    else
+                      | e.g. blinkerize.com/xyz123
+                    | ) into the 
+                    i
+                      strong Home Page 
+                    | input field 
+                  li Click 
+                    i
+                      strong OK
+                    | to confirm and close the dialog.
+  div(class='panel panel-default', id='faq_screensaver')
+    .panel-heading
+      h5 How to display my Blinkerize URL as a screensaver ?
+    .panel-body
+       p  When you let your PC rest for a while and then come back, the short moment before you continue your work is a nice opportunity to peek at a word or two appearing on your screen after you set up your Blinkerize URL as a screensaver:
+        .panel-group#accordion
+          div(class='panel panel-default')
+            .panel-heading
+              h6
+                a(href='#collapseScrWin', data-toggle='collapse', data-parent='.accordion')
+                  b.caret
+                  |  Windows
+
+            div#collapseScrWin(class='panel-collapse collapse')
+              div(class='panel-body') 
+                p You'll need to use a third-party software that lets you use any HTML page as a screensaver.
+                p You may want to try Djmclean's  
+                  i 
+                    strong HTML Screensaver 
+                  | that can be downloaded here: 
+                p  
+                  a(href='http://myweb.tiscali.co.uk/djmclean/htmlscreensaver.html', target = '_blank') http://myweb.tiscali.co.uk/djmclean/htmlscreensaver.html 
+                p Download the Installer, run it and follow the installation process. Then go to your screensaver settings (click 
+                  a(href='http://windows.microsoft.com/en-us/windows-xp/help/setup/set-up-screen-saver', target = '_blank') here 
+                  | if you need a guide) and paste your Blinkerize URL (
+                  if user
+                    code 
+                      strong http://blinkerize.com/#{user.username}
+                        
+                  else
+                    | e.g. blinkerize.com/xyz123
+                  | ) into the URL field.
+                p 
+                  i Note: Remember that you download and install any third-party software on your own risk.
+  div(class='panel panel-default')
+    .panel-heading
+      h5 Can I use my Blinkerize vocabulary website offline ?
+    .panel-body
+       p 
+         | Yes, you can make and use a local copy (e.g. on HDD) of your Blinkerize website. Go to your Blinkerize URL and save the current website on your disk as a HTML document. The local HTML file looks exactly the same and can be used instead its online version (as home page, new tab page or a screensaver) if you can't connect to our server for some reasons. Remember to update your offline version (just save the HTML file again) when you update your vocabulary online.
+  div(class='panel panel-default')
+    .panel-heading
+      h5 How can I contact Blinkerize ?
+    .panel-body
+       p Send us an email at 
+         a(href="mailto:blinkerize@gmail.com") blinkerize@gmail.com
+       p Follow Blinkerize on Facebook: 
+         a(href='http://facebook.com/blinkerize') facebook.com/blinkerize

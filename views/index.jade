@@ -1,0 +1,65 @@
+extends layout
+
+block content
+  
+  
+  .header-image
+    .headline
+      .container
+        h1 Blinkerize.
+        h2 Memorize things in the blink of an eye. Literally.
+        if !user
+          p
+          a.button.btn.btn-primary.btn-lg(type='button', href='/signup') Sign me up!
+        else
+          p
+          a.button.btn.btn-primary.btn-lg(type='button', href='/signup', disabled='true') Sign me up!
+        p
+
+    
+  .container
+    hr.featurette-divider-short
+    h4.lead You've got more time for learning than you might think. 
+      span.text-muted-gray Blinkerize helps you smuggle learning and memorizing through your daily tasks. 
+    hr.featurette-divider
+    .featurette
+      img(class='featurette-image img-thumbnail img-responsive pull-left', src='/images/demo-pic-1.jpg')
+      h2.featurette-heading 1. Write down 
+        span.text-muted your study material
+     
+        p.lead Foreign language vocabulary, terms & definitions or any textual information.
+    hr.featurette-divider
+    .featurette
+      img(class='featurette-image img-thumbnail img-responsive pull-left', src='/images/demo-anim.gif')
+      h2.featurette-heading 2. Have it displayed 
+        span.text-muted as full-screen flashcards
+        p.lead Get your own URL where the vocabulary is displayed line by line. <br /> See an example with 
+          a(href='/xyz123') Latin herbs
+          |  and 
+          a(href='/abc456') French expressions.
+    hr.featurette-divider
+    .featurette
+      h2.featurette-heading 3. Now, let it accompany you  
+        span.text-muted through your workday (and beyond)
+        //p.lead Have your Blinkerize URL displayed for a couple of precious seconds multiple times a day, when you are actually busy with something else:
+        ul.lead
+          li See it everytime you open 
+            strong new blank browser tab or window  
+            small 
+              a(href='/faq#faq_open_in_blank_tab') Learn how
+          li 
+            | Make it your browser's 
+            strong home page
+          li Use it as a 
+            strong screensaver 
+            small 
+              a(href='faq#faq_screensaver') Learn how
+          li 
+            | Have something to too peek at during non-productive meetings : )
+        hr.featurette-divider
+        
+        p.lead
+          a(href='signup') Sign up 
+          | and see if this works for you. Share your learning experiences on our 
+          a(target='_blank', href='http://facebook.com') Facebook community 
+          | page.
