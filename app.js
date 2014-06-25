@@ -348,6 +348,7 @@ app.post('/signup', function(req, res) {
 	  } else {  
 	    res.redirect('/edit'); 
 		req.flash('success', 'You have successfully registered with email: ' + user.email);
+		console.log('*** New account: ' + user.email); 
 	  }
     });
   });
@@ -453,12 +454,11 @@ app.post('/edit', function(req, res) {
 	 var updateData = {
 		 vocabulary: req.body.vocabulary
 	   };
-	   console.log(req.body.vocabulary); 
-	   console.log('The checkbox status is: ');
-	   console.log(req.body.is_random_checkbox);
+	   console.log('** ' + req.user.email + ' has updated his vocabulary'); 
+
 	     
 	   req.user.vocabulary = req.body.vocabulary; 
-	    console.log(req.user.vocabulary)
+
 	    if (req.body.is_random_checkbox) {
 		  req.user.isRandom = true;
 		} 
