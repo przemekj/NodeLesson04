@@ -129,7 +129,7 @@ block content
                       span(class='input-group-addon')
                         i(id = 'back_color_i', style='background-color: blue') 
 
-            label.checkbox Display entries in random order
+            label.is_random_checkbox Display entries in random order 
 
               if user.isRandom == true
                 input(type='checkbox', name='is_random_checkbox', id='is_random_checkbox', value='Yes', checked='checked')
@@ -137,8 +137,9 @@ block content
               else
                 // do something 
                 input(type='checkbox', name='is_random_checkbox', id='is_random_checkbox', value='No')
-            a.btn.btn-default.pull-right(role='button', id='defaults-btn', onclick="backToDefaults()") Back to defaults
-            label.checkbox Place current line in page title
+
+            br
+            label.is_title_modified_checkbox Place current line in page title 
               
               if user.isTitleModified == true
                 input(type='checkbox', name='is_title_modified_checkbox', id='is_title_modified_checkbox', value='Yes', checked='checked')
@@ -146,7 +147,7 @@ block content
               else
                 // do something 
                 input(type='checkbox', name='is_title_modified_checkbox', id='is_title_modified_checkbox', value='No')
-
+            a.btn.btn-default.pull-right(role='button', id='defaults-btn', onclick="backToDefaults()") Back to defaults
 
     button.btn.btn-primary(type='submit', id='save_button') Save vocabulary & settings
     p
