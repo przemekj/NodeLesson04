@@ -141,6 +141,20 @@ block content
                     else
                       | e.g. http://www.blinkerize.com/xyz123
                     | ) into the input field
+          div(class='panel panel-default')
+            .panel-heading
+              h6
+                a(href='#collapseSafari', data-toggle='collapse', data-parent='.accordion')
+                  b.caret
+                  |  Safari
+
+            div#collapseSafari(class='panel-collapse collapse')
+              div(class='panel-body') 
+                p See the instructions on WikiHow.com page:
+                p 
+                  a(href='http://www.wikihow.com/Change-Your-New-Tab-Page-in-Safari', target = '_blank') http://www.wikihow.com/Change-Your-New-Tab-Page-in-Safari
+
+
 
   div(class='panel panel-default')
     .panel-heading
@@ -296,7 +310,8 @@ block content
                   else
                     | e.g. http://www.blinkerize.com/xyz123
                   | ) into the URL field.
-                p 
+                p Tick the checkbox "Display in a frame, without a border and scrollbars" if the page does not display the right way.
+                p
                   i Note: Remember that you download and install any third-party software on your own risk.
   div(class='panel panel-default')
     .panel-heading

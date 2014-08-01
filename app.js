@@ -54,7 +54,7 @@ var userSchema = new mongoose.Schema({
   username: { type: String, required:true, unique: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true, validate: validate('len', 3, 80) },
-  vocabulary: { type: String, required: false, validate: validate({message: "String should be between 1 and 30000 characters"}, 'len', 1, 30000) },
+  vocabulary: { type: String, required: false, validate: validate({message: "String should be between 1 and 30000 characters"}, 'len', 1, 60000) },
   //password: { type: String, required: true},
   //vocabulary: { type: String, required: false},
   isRandom: { type: Boolean, required: false },
@@ -117,7 +117,7 @@ app.use(express.cookieParser());
 app.use(express.session({ 
 	secret: process.env.SECRET,  // LOCAL LOCAL LOCAL LOCAL
 	cookie : {
-    maxAge : 604800000 // 7 * 24 * 60 * 60 * 1000;
+    maxAge : 7*24*60*60*1000 // 7 * 24 * 60 * 60 * 1000;
       }
 }));
 app.use(flash());
