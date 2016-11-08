@@ -430,7 +430,7 @@ app.post('/reset/:token', function(req, res) {
         service: 'Gmail',
         auth: {
           user: 'blinkerize@gmail.com',
-          pass: 'blink9!efez'
+          pass: 'bize99newpassXX'
         }
       });
       var mailOptions = {
