@@ -53,10 +53,10 @@ passport.deserializeUser(function(id, done) {
 var userSchema = new mongoose.Schema({
   username: { type: String, required:true, unique: true },
   email: { type: String, required: true, unique: true },
-  //password: { type: String, required: true, validate: validate('len', 3, 80) },
-  //vocabulary: { type: String, required: false, validate: validate({message: "String should be between 1 and 30000 characters"}, 'len', 1, 60000) },
-  password: { type: String, required: true},
-  vocabulary: { type: String, required: false},
+  password: { type: String, required: true, validate: validate('len', 3, 80) },
+  vocabulary: { type: String, required: false, validate: validate({message: "String should be between 1 and 30000 characters"}, 'len', 1, 60000) },
+  //password: { type: String, required: true},
+  //vocabulary: { type: String, required: false},
   isRandom: { type: Boolean, required: false },
   isTitleModified: { type: Boolean, required: false },
   delay: { type: Number, required: false, max: 7000, min: 100 },
@@ -430,7 +430,7 @@ app.post('/reset/:token', function(req, res) {
         service: 'Gmail',
         auth: {
           user: 'blinkerize@gmail.com',
-          pass: 'bize99newpassXX'
+          pass: 'blink9!efez'
         }
       });
       var mailOptions = {
